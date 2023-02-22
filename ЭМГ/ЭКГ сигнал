@@ -1,0 +1,16 @@
+#define analogInPin  A0  
+#define alanalogpin2 A1
+#define Td 10 // мс
+uint32_t last_ms = 0;
+void setup() {
+  Serial.begin(115200);
+  last_ms = millis();
+}
+void loop() {
+  if ((millis() - last_ms)>=Td) {
+    int sensorValue = analogRead(analogInPin);
+    last_ms = millis();
+    int sensorvalue2 = analogRead(alanalogpin2);
+    Serial.println(sensorValue, sensorvalue2);
+  }
+}
